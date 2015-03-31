@@ -1,0 +1,63 @@
+[user]
+	name = Chris McKenzie 
+	email = crmckenzie@gmail.com
+[core]
+  autocrlf = true
+  excludesfile = ~/.gitignore
+  # excludesfile = C:\\Users\\ChrisMc\\Documents\\gitignore_global.txt
+
+#
+# as a node to environment problems, you'll have to comment/uncomment the correct
+# helper for the OS you're running on.
+#
+[credential]
+	helper = wincred
+  # helper = osxkeychain
+
+[alias]
+  # Show verbose output about tags, branches or remotes
+  tags = tag -l
+  branches = branch -a
+  remotes = remote -v
+  # Pretty log output
+  hist = log --graph --pretty=format:'%Cred%h%Creset %s%C(yellow)%d%Creset %Cgreen(%cr)%Creset [%an]' --abbrev-commit --date=relative
+
+  # commit everything
+  cm = !git add --all && git commit -m
+
+  # undo everything
+  undo = !git reset HEAD --hard && git clean -fd
+
+  # Which files are receiving the most "love"
+  churn = !git log --all -M -C --name-only --format='format:' "$@" | sort | grep -v '^$' | uniq -c | sort | awk 'BEGIN {print "count,file"} {print $1 "," $2}'    
+
+[color]
+  # Use colors in Git commands that are capable of colored output when outputting to the terminal
+  ui = auto
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+
+# Use `origin` as the default remote on the `master` branch in all cases
+[branch "master"]
+  remote = origin
+  merge = refs/heads/master
+
+[push]
+	default = simple
+
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+  required = true
+
