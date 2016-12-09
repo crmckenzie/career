@@ -16,6 +16,8 @@ He maintains a blog at http://www.iextendable.com where he discusses whatever is
 
 ## Mind Map
 
+What is quality?
+Knight Capital: Consequences of failed quality
 Quality engineering techniques have to be learned
 Product vs Project teams
 The role of automated testing / deployment
