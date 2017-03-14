@@ -8,6 +8,7 @@ Move-LibraryDirectory "Personal" "$env:UserProfile\OneDrive\documents"
 cinst 7zip
 cinst chrome
 cinst conemu
+cinst dotnetcore-sdk
 cinst fiddler4
 cinst git
 cinst gitkraken
