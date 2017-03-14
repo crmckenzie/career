@@ -30,10 +30,11 @@ cinst windirstat
 
 if (Test-PendingReboot) { Invoke-Reboot }
 
+write-host "Setting up development directory." -ForegroundColor Green
 mkdir "$($env:Home)\src"
 pushd "$($env:Home)\src"
 
-write-host "Setting up git config"
+write-host "Setting up git config." -ForegroundColor Green
 git clone http://github.com/crmckenzie/career
 $existingConfig = Join-Path $env:UserProfile .gitconfig 
 if (Test-Path $existingConfig) {
@@ -42,11 +43,12 @@ if (Test-Path $existingConfig) {
 New-Item -ItemType SymbolicLink -Path $env:UserProfile -Name .gitconfig -Target (Resolve-Path "windows-workstation\.gitconfig")
 
 
-# Install default powershell profile
+write-host "Installing default powershell profile." -ForegroundColor Green
 . ./windows-workstation/Install-Profile.ps1
-
 popd
 
+write-host "Installing grunt-cli." -ForegroundColor Green
+npm install -g grunt-cli
 
 #cinst Microsoft-Hyper-V-All -source windowsFeatures
 #cinst IIS-WebServerRole -source windowsfeatures
