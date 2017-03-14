@@ -3,6 +3,7 @@
 
 Set-ExplorerOptions -showHiddenFilesFoldersDrives -showProtectedOSFiles -showFileExtensions
 Enable-RemoteDesktop
+Disable-UAC
 Move-LibraryDirectory "Personal" "$env:UserProfile\OneDrive\documents"
 
 cinst 7zip
