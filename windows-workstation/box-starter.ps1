@@ -14,6 +14,7 @@ cinst fiddler4
 cinst git
 cinst gitkraken
 cinst linqpad4
+cinst nodejs.install
 cinst notepadplusplus
 cinst nuget.commandline
 cinst nugetpackageexplorer
