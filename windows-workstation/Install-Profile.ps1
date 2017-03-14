@@ -1,18 +1,17 @@
-$documents = [Environment]::GetFolderPath("MyDocuments")
-$powershellDir = "$documents\WindowsPowershell"
-$moduleDir = "$powershellDir\Modules"
+$Documents = [Environment]::GetFolderPath("MyDocuments")
+$PowershellDir = "$documents\WindowsPowershell\Modules"
+$ModuleDir = "$powershellDir\Modules"
 
 
 $files = [System.IO.Directory]::GetFiles("$PSSCriptRoot\Profiles")
-$files | foreach {
-    $file = New-Object "System.IO.FileInfo" $_
+$files | %{
+    $file = $_
 
-    $symlink = "$powershellDir\$($file.Name)"
-    if ([System.IO.FIle]::Exists($symlink)){
-        write-debug "Removing old symlink for $symlink"
-        [System.IO.File]::Delete($symlink)
+    $symlink = Join-Path $powershellDir $file.Name
+    if (Test-Path $symlink) {
+        Remove-Item $symlink -Force
     }
-
+ 
     if (-not (Test-Path $powershellDir)) {
         write-host "Creating the powershell directory at $powershellDir."
         New-Item -ItemType Directory -Path $powershellDir -Force
