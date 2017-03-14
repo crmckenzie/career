@@ -47,8 +47,9 @@ write-host "Installing default powershell profile." -ForegroundColor Green
 . ./windows-workstation/Install-Profile.ps1
 popd
 
-write-host "Installing grunt-cli." -ForegroundColor Green
+write-host "Installing grunt and gulp." -ForegroundColor Green
 npm install -g grunt-cli
+npm install -g gulp-cli
 
 #cinst Microsoft-Hyper-V-All -source windowsFeatures
 #cinst IIS-WebServerRole -source windowsfeatures
