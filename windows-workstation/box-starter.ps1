@@ -27,7 +27,9 @@ cinst sysinternals
 cinst tortoisegit
 cinst visualstudiocode
 cinst windirstat
+cinst zoomit
 
+# Reboot so that PATH changes take effect
 if (Test-PendingReboot) { Invoke-Reboot }
 
 write-host "Setting up development directory." -ForegroundColor Green
