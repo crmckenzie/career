@@ -1,5 +1,5 @@
 # BoxStarter script
-#START http://boxstarter.org/package/nr/url?<raw url>
+#START http://boxstarter.org/package/nr/url?https://raw.githubusercontent.com/crmckenzie/career/master/windows-workstation/box-starter.ps1
 
 Set-ExplorerOptions -showHiddenFilesFoldersDrives -showProtectedOSFiles -showFileExtensions
 Enable-RemoteDesktop
