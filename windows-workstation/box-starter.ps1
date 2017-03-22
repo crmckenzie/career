@@ -55,6 +55,9 @@ write-host "Installing grunt and gulp." -ForegroundColor Green
 npm install -g grunt-cli
 npm install -g gulp-cli
 
+write-host "Installing Yeoman" -ForegroundColor Green
+npm install -g yo
+
 #cinst Microsoft-Hyper-V-All -source windowsFeatures
 #cinst IIS-WebServerRole -source windowsfeatures
 #Install-WindowsUpdate -AcceptEula
