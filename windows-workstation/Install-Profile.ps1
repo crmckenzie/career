@@ -1,14 +1,24 @@
 $Documents = [Environment]::GetFolderPath("MyDocuments")
-$PowershellDir = "$documents\WindowsPowershell\Modules"
+$PowershellDir = "$documents\WindowsPowershell"
 $ModuleDir = "$powershellDir\Modules"
+$ProfilesDir = "$PSSCriptRoot\Powershell"
+
+write-host @"
+    Documents    : $Documents
+    PowershellDir: $PowershellDir
+    ModuleDir    : $ModuleDir
+    ProfilesDir : $ProfilesDir
+"@
 
 
-$files = [System.IO.Directory]::GetFiles("$PSSCriptRoot\Profiles")
+$files = [System.IO.Directory]::GetFiles($ProfilesDir)
+
 $files | %{
     $file = $_
-
-    $symlink = Join-Path $powershellDir $file.Name
+    $fileName = Split-Path $file -Leaf
+    $symlink = Join-Path $powershellDir $fileName
     if (Test-Path $symlink) {
+        write-host "Removing existing symlink: $symlink"
         Remove-Item $symlink -Force
     }
  
@@ -17,6 +27,6 @@ $files | %{
         New-Item -ItemType Directory -Path $powershellDir -Force
     }
 
-    write-host "Creating symbolic link $powershellDir\$($file.Name) => $($file.FullName)."
-    New-Item -ItemType SymbolicLink -Path $powershellDir -Name $file.Name -Value $file.FullName
+    write-host "Creating symbolic link $powershellDir\$($fileName) => $($file)."
+    New-Item -ItemType SymbolicLink -Path $powershellDir -Name $fileName -Value $file
 }
