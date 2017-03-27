@@ -16,6 +16,8 @@ He maintains a blog at http://www.iextendable.com where he discusses whatever is
 
 ## Mind Map
 
+What is quality?
+Knight Capital: Consequences of failed quality
 Quality engineering techniques have to be learned
 Product vs Project teams
 The role of automated testing / deployment
@@ -26,6 +28,44 @@ Peanut Butter Sandwich
   - wrong kind of jelly
   - How long did it take to make the sandwich?
 
+## Outline
+
+I. The Problem
+  A. What is quality? 
+     i. Correctness
+     ii. The ability to withstand change over time
+        a. made possible by maintainability
+        b. i.e., readability
+        c. i.e., solid engineering
+      iii. [Quality vs. Business value](https://media.licdn.com/mpr/mpr/AAEAAQAAAAAAAAK-AAAAJDRlNzZjODgxLWQ5ZWQtNGNjZS05Mjc3LWU1ZjkxNzgxODJjYQ.jpg)
+  B. Agile processes do not guarantee quality software
+     i. authors of Agile Manifesto found it necessary to create the Software Craftsmanship Manifesto in response to over-focus on process.
+     ii. agile processes decoupled from a committment to technical excellence makes software rot faster
+     iii. How? Kitchen metaphor
+     iv. bad accounting--bug fixes are part of the original cost of work
+II. The Cost of the Problem
+  A. Lesser example: decreased velocity over time
+  B. Extreme example: Knight Capital
+  C. Warehouse picker
+  D. Other examples: toyota brake problem, self-driving car bike lane problem, etc.
+III. How did we get here?
+  A. Lack of trust?
+    i. How does the business know it's getting good ROI?
+IV. The solution
+  A. Committment to technical excellence
+     i. Business must regard technical excellence as part of the "business value"
+     ii. Business must hire and reward engineers who care about technical excellence.
+        a. automated testing
+        b. continuous integration
+        c. continuous deployment
+        d. invest in high quality hardware and software - development time is precious
+  B. Speed is a feature
+     i. shortcuts (i.e. technical debt) must be accounted for in future projects
+     ii. "Done" must include a concept of sustainability
+     iii. to go faster, we must go slower
+V. How do we get there from here?
+  A. Build trust 
+
 ## Resources
 
 * [Agile Manifesto](http://agilemanifesto.org/)
@@ -34,3 +74,4 @@ Peanut Butter Sandwich
 * [Slightly Messy Kitchen] (https://www.google.com/search?q=a+kitchen+in+various+stages+of+messiness&espv=2&biw=1600&bih=770&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiP9_X91djQAhUIdiYKHdqZDUkQ_AUIBigB#tbm=isch&q=messy+kitchen&imgrc=cQTYgRsDnjAttM%3A)
 * [Messy Kitchen] (http://hgdiy.com/files/2013/07/Messy-kitchen-2.png)
 * [Clean Kitchen] (https://www.google.com/search?q=a+kitchen+in+various+stages+of+messiness&espv=2&biw=1600&bih=770&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiP9_X91djQAhUIdiYKHdqZDUkQ_AUIBigB#tbm=isch&q=small+clean+kitchen&imgrc=xhlcVnaEL2LCqM%3A)
+* [Software Development Waste](https://www.researchgate.net/publication/313360479_Software_Development_Waste)

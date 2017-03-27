@@ -1,6 +1,7 @@
 [user]
 	name = Chris McKenzie 
 	email = crmckenzie@gmail.com
+  
 [core]
   autocrlf = true
   excludesfile = ~/.gitignore
