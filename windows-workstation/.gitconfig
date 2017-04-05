@@ -55,7 +55,7 @@
   merge = refs/heads/master
 
 [push]
-	default = simple
+	default = current
 
 [filter "hawser"]
 	clean = git hawser clean %f
