@@ -1,6 +1,8 @@
 # Powershell: How to Write Pipable Functions
 
-Piping is probably one of the most underutilized feature of Powershell that I've seen in the wild. Here's a simple rule of thumb: if you find yourself writing a `foreach` loop in Powershell with more than just a line or two in the body, you might be doing something wrong.
+Piping is probably one of the most underutilized feature of Powershell that I've seen in the wild. Supporting pipes in Powershell allows you to write code that is much more expressive than simple imperative programming. However, most Powershell documentation does not do a good job of demonstrating how to think about pipable functions. In this tutorial, we will start with functions written the "standard" way and convert them step-by-step to support pipes.
+
+Here's a simple rule of thumb: if you find yourself writing a `foreach` loop in Powershell with more than just a line or two in the body, you might be doing something wrong.
 
 Consider the following output from a function called `Get-Team`:
 
@@ -241,7 +243,7 @@ Name: Ophelia; Title: Software Engineer
 Format-TeamMember: End
 ```
 
-### Pipe Forwarding
+# Pipe Forwarding
 
 Our `Format-TeamMember` function now supports _receiving_ data from the pipe, but it does not return any information that can be forwarded to the next function in the pipeline. We can change that by `returning` the formatted line instead of calling `Write-Host`. 
 
@@ -284,7 +286,7 @@ Name: Ophelia; Title: Software Engineer
 
 ```
 
-### Filtering
+# Filtering
 
 This is a lot of information. What if we wanted to filter the data so that we only see the people with the title "Service Engineer?" Let's implement a function that filters data out of the pipe.
 
@@ -316,7 +318,7 @@ function Find-Role(){
 }
 ```
 
-This should be self-explanatory for the most part. Let me draw your attention though to the `return;` statement that isn't technically required. A mistake I've seen made in this scenario is to return `$null`. If you return `$null` it adds `$null` to the pipeline as it if were a return value. If you want to exclude an item from being forwarded through the pipe you must not return anything. While the `return;` statement is not syntactically required by the language, I find it helpful to communicate my intention that I am deliberately not adding an element to the pipe.
+This should be self-explanatory for the most part. Let me draw your attention though to the `return;` statement that isn't technically required. A mistake I've seen made in this scenario is to return `$null`. If you return `$null` it adds `$null` to the pipeline as it if were a return value. If you want to exclude an item from being forwarded through the pipe you must not return anything. While the `return;` statement is not syntactically required by the language, _I find it helpful to communicate my intention_ that I am deliberately not adding an element to the pipe.
 
 Now let's look at usage:
 
@@ -340,3 +342,7 @@ Name: Neil; Title: Service Engineer
 Name: Kevin; Title: Service Engineer
 
 ```
+
+# Summary
+
+Pipable functions are a powerful language feature of Powershell `<rimshots/>`. Writing pipable functions allows you to compose logic in a way that is more expressive than simple imperative scripting. I hope this tutorial demonstrated to you how to modify existing Powershell functions to support pipes.
